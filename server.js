@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const hbs = require('hbs');
+const port = process.env.PORT || 3000;
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
-
-console.log(__dirname + '/public');
 
 //middleware number 1
 app.use((req,res,next) => {
@@ -78,4 +77,4 @@ app.get('/bad', (req,res) => {
     status: 400
   });
 });
-app.listen(3000);
+app.listen(port);
